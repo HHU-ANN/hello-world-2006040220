@@ -22,7 +22,7 @@ def lasso(data):
     label = 1e-5
     for i in range(int(1e10)):
         Y = np.matmul(weight, x)
-        loss = (np.sum(Y - y) ** 2) / 6
+        loss = np.sum(Y - y) ** 2 + np.linalg.norm(weight,ord=1)
         if loss < label
             break
         dweight=np.matmul((Y - y),x.T)
